@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:background-color="http://www.w3.org/1999/xhtml"
+      xmlns:margin="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Computers</title>
+  <style>
+        table {font-family: arial, sans-serif; border-collapse: collapse; width: 100%; }td, th {
+            border: 1px solid #dddddd; text-align: left; padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}
+    </style>
+</head>
+<body>
+
+<div style="margin: 100px">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Computer name</th>
+      <th scope="col">price</th>
+      <th scope="col">price in dolars</th>
+      <th scope="col">price in PLN</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="computer: ${computersList}">
+
+      <td th:text="${computer.computerName}"/>
+      <td th:text="${computer.dolarPrice}"/>
+      <td th:text="${computer.computerPriceInDolars}"/>
+      <td th:text="${computer.computerPriceInPLN}"/>
+      <td>
+      <form th:action="'/delete/' + ${computer.getId_()}" method="POST">
+        <button type="submit" class="btn btn-dark">Delete</button>
+      </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <button type="button" class="btn btn-success" onclick="window.location.href='/add'">Add Computer</button>
+</div>
+
+
+
+
+
+</body>
+</html>
