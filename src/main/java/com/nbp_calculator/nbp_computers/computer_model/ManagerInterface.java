@@ -2,6 +2,7 @@ package com.nbp_calculator.nbp_computers.computer_model;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ private ComputerInterface computerInterface;
     }
 
     public List<ComputerModel>getAllComputers (){
-        return computerInterface.findAll();
+        return computerInterface.findAll(Sort.by("computerName"));
     }
 
     public void saveComputer (ComputerModel computer){
