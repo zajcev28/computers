@@ -1,19 +1,43 @@
 package com.nbp_calculator.nbp_computers.nbp_service_calculator;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class NbpServiceCalculator {
 
 
-    public static String getPriceFromDate(String date) throws MalformedURLException, JSONException {
+    public static String getPriceFromDate(String date) throws JSONException {
+
+
+
+
+
+    /*    // Setting URL
+        String url_str = "https://exchange-rates.abstractapi.com/v1/live/?api_key=b6a8bcb345604115860567d046e93199&base=USD&target=PLN";
+
+// Making Request
+        URL url = new URL(url_str);
+        HttpURLConnection request = (HttpURLConnection) url.openConnection();
+        request.connect();
+
+// Convert to JSON
+        JsonParser jp = new JsonParser();
+        JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent()));
+        JsonObject jsonobj = root.getAsJsonObject();
+
+// Accessing object
+        String req_result = jsonobj.get("result").getAsString();*/
+
 
       //  Date must be in format "yyyy-MM-dd"
         String Url_to_Nbp = "http://api.nbp.pl/api/exchangerates/rates/c/usd/"+date+"/?format=json";

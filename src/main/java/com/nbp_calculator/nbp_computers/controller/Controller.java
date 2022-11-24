@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.time.LocalDate;
 
@@ -38,7 +39,7 @@ public class Controller {
     }
 
     @PostMapping
-    public RedirectView saveComputer(ComputerModel computer) throws MalformedURLException, JSONException {
+    public RedirectView saveComputer(ComputerModel computer) throws JSONException {
         Double priceInDolars = Double.valueOf(computer.getComputerPriceInDolars());
         Double dolarPrice = Double.valueOf(NbpServiceCalculator.getPriceFromDate(computer.getDateWhenDolarWasBroughtFromNBP_API()));
         computer.setDolarPrice(String.valueOf(dolarPrice));
